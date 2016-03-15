@@ -1,0 +1,23 @@
+language: node
+
+before_install:
+ - chmod +x ./scripts/*
+ - ./scripts/before_install.sh
+
+before_script:
+
+# Assume bundler is being used, therefore
+# the `install` step will run `bundle install` by default.
+script: ./script/cibuild
+
+after_success:
+ - ./scripts/after_success.sh
+after_failure:
+- ./scripts/after_failure.sh
+
+env:
+  global:
+    - MAKER_KEY=bE23wcpswHaGhx-lE7I599
+    - YELLOW=$FFFF00
+    - RED=#FF0000
+    - GREEN=#00FF00
