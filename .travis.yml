@@ -6,8 +6,6 @@ before_install:
 
 before_script:
 
-# Assume bundler is being used, therefore
-# the `install` step will run `bundle install` by default.
 script: ./scripts/build.sh
 
 after_success:
@@ -18,6 +16,6 @@ after_failure:
 env:
   global:
     - MAKER_KEY=bE23wcpswHaGhx-lE7I599
-    - YELLOW=$FFFF00
-    - RED=#FF0000
-    - GREEN=#00FF00
+    - YELLOW=FFFF00
+    - RED=FF0000
+    - GREEN=00FF00
