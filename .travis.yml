@@ -2,16 +2,16 @@ language: node
 
 before_install:
  - chmod +x ./scripts/*
- - ./scripts/before_install.sh
+ - curl https://maker.ifttt.com/trigger/build_event/with/key/$MAKER_KEY?value=$YELLOW
 
 before_script:
 
 script: ./scripts/build.sh
 
 after_success:
- - ./scripts/after_success.sh
+ - curl https://maker.ifttt.com/trigger/build_event/with/key/$MAKER_KEY?value=$GREEN
 after_failure:
-- ./scripts/after_failure.sh
+- curl https://maker.ifttt.com/trigger/build_event/with/key/$MAKER_KEY?value=$RED
 
 env:
   global:
